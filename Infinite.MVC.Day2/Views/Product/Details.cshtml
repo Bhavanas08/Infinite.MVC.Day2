@@ -1,0 +1,34 @@
+﻿@using Infinite.MVC.Day2.Models;
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of Products</h2>
+<hr />
+@*<ul>
+    <li>@Model.Id</li>
+    <li>@Model.ProductName</li>
+    <li>@Model.Price</li>
+    <li>@Model.Quantity</li>
+</ul>*@
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item"><b>Product Id :</b>@Model.Id</li>
+            <li class="list-group-item"><b>Product Name :</b>@Model.ProductName</li>
+            <li class="list-group-item"><b>Price :</b>@Model.Price</li>
+            <li class="list-group-item"><b>Quantity :</b>@Model.Quantity</li>
+            <li class="list-group-item"><b>Category Id :</b>@Model.CategoryId</li>
+            <li class="list-group-item"><b>Category Name :</b>@Model.Category.CategoryName</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.ActionLink("Back to Index", "Index", "Product");
+    </div>
+</div>
+

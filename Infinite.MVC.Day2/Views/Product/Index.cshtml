@@ -1,0 +1,44 @@
+﻿@model List<Infinite.MVC.Day2.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>List of Products</h2>
+
+@Html.ActionLink("Add New","Create","Product",null, new { @class="btn btn-info"})
+
+<table class="table">
+    <tr>
+        @*<th>Id</th>
+        <th>ProductName</th>
+        <th>Price</th>
+        <th>Quantity</th>*@
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Action</th>
+    </tr>
+
+
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            @*<td>@c.Id</td>
+            <td>@c.ProductName</td>
+            <td>@c.Price</td>
+            <td>@c.Quantity</td>*@
+
+            <td>@c.Id</td>
+            <td>@Html.ActionLink(c.ProductName,"Details","Product",new { id=c.Id}, null)</td>
+            <td>@Html.ActionLink("Edit","Edit","Product",new { id = c.Id },new { @class = "btn btn-info" })</td>
+            <td>
+                @using (Html.BeginForm("Delete", "Product", new { id = c.Id },FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                }
+            </td>
+        </tr>
+    }
+</table>
